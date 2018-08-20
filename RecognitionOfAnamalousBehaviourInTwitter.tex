@@ -186,35 +186,36 @@ Here, we track the device category that the user is using to compose tweets. Maj
 		
 \end{enumerate} 
 First, we extract all the devices that the user has used to compose the tweet, and in the next step we consider the most used device among the available sources. Since the ANN cannot work on the string sources, we convert the string sources to numeric values.
-\newpage
+
  
 \section{Methodology}
+
+The entire flow of anomalous user detection can be summerized as shown in Fig 1. The first step includes extraction of real world data. We have used python library called 'tweepy' for extracting the data in csv format.\\
+
 \begin{figure}[h!]
-\includegraphics[scale=0.7]{Methodology}
-  \caption{Flowchart of Anomalous User Detection.}
+	\includegraphics[scale=0.7]{Methodology}
+	\caption{Flowchart of Anomalous User Detection.}
 \end{figure}
-The entire flow of anomalous user detection can be summerized as shown in fig 1.0. The first step includes extraction of real world data. We have used python library called 'tweepy' for extracting the data in csv format.\\
 
 The quality of the ANN algorithm depends directly on the quality of input data. Real world data tends to be messy with many missing values, redundant and noisy data etc. Hence, in the second step we carry out exploratory data analysis where we clean the data looking for missing, NotAvailable(NA) or empty values, duplicate ids and identify any outliers. Then we remove such data since they can make the ANN model unstable for prediction.\\
 
 In the third step we derive the columns like Friendship Ratio, Tweet Ratio, Tweeting Period, Device Preference using the algorithm discussed in section \ref{featureDescription}. The derived values are then normalized to scale within 0 to 1. \\
 
-Once the data is preprocessed and all the derived columns are available, we split the data into train and test data, use the train data to prepare the ANN model and once the model is trained we use the remaining test data to evaluate the accuracy of the model to test how well the model has learnt from it's test data. \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+Once the data is preprocessed and all the derived columns are available, we split the data into train and test data, use the train data to prepare the ANN model and once the model is trained we use the remaining test data to evaluate the 
+accuracy of the model to test how well the model has learnt from it's test data.
  
 \section{Experiments and Results}
-  	We considered extracting the real world data using python library called 'tweepy'. We started with one user and extracted all the friends from the user profile and extracted all the tweets and other information required for the algorithm and we repeated the same procedure for each of the friends in the list, taking care to avoid duplicated extraction of the user data who is a common friend. \\
+	  We considered extracting the real world data using python library called 'tweepy'. We started with one user and extracted all the friends from the user profile and extracted all the tweets and other information required for the algorithm and we repeated the same procedure for each of the friends in the list, taking care to avoid 
+	  duplicated extraction of the user data who is a common friend. \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
  
-  	Once the data is available, we carried out Exploratory Data Analysis to identify null/empty values and removed outliers from the data. Using the algorithms discussed in section \ref{featureDescription} we divided the data into training and test data in the ratio of 70:30(train:test). \\
+  	Once the data is available, we carried out Exploratory Data Analysis to identify null/empty values and removed outliers from the data. Using the algorithms discussed in section \ref{featureDescription} we divided the data into training and test data in the ratio of 70:30(train:test).\\
 
 	We used Aritifical Neural Network library called 'neuralnet' provided by 'R' language. Once the model was trained we used the remainig test data to evaluate the performace of the ANN model, and once we noticed deviation in the user behaviour we flaged the user as anamalous. \\
 	
 	We ran the algorithm on the 1.4 million tweets extracted from twitter, and were able to identify Social Bot accounts with high accuracy requiring only few tweets to identify whether the account is compromised or not.
  While extracting the data we collected data samples of compromised account from twitter.com to see whether our algorithm is able to classify them as compromised or not. The final results classified those compromised accounts showing the accuracy of algorithm used.
 
-
-\newpage
-\includegraphics[scale=0.9]{attack_types}
-
+% \includegraphics[scale=0.9]{attack_types}
 
 \begin{figure}[h!]
   \includegraphics[scale=0.4]{sample_ann}
@@ -222,12 +223,12 @@ Once the data is preprocessed and all the derived columns are available, we spli
 \end{figure}
 
 \begin{figure}[h!]
-  \includegraphics[scale=0.4]{finalResultPic3}
-  \caption{Mapping of Anamalous users to Languages used.}
+  \includegraphics[scale=0.6]{pieChart1}
+  \caption{ Normal vs Anomalous Users.}
 \end{figure}
 
-Fig 2 shows the sample of ANN as created by R neuralnet library. We used features like tweeting period, devices used for composing tweets, tweet ratio etc. to train the model. Fig 3 shows the final result where Anamalous user is marked with orange color vs language.\\\\\\\\\\\\\\
-
+Fig 2. shows the sample of ANN as created by R neuralnet library. We used features like tweeting period, devices used for composing tweets, tweet ratio etc. to train the model.\\
+Fig 3. shows the final result where Anamalous user is mapped against Normal user.
 
 \section{Conclusion and Futurework}
 
@@ -280,7 +281,8 @@ classification of compromised twitter accounts.
 Proceedings of the ACM Symposium on Applied
 Computing, pages 587–593, 2014.
 \item Onur Varol, Emilio Ferrara, Clayton A. Davis, Filippo Menczer, Alessandro Flammini, Online Human-Bot Interactions: Detection, Estimation, and Characterization.
-\item Rodrigo Augusto Igawa, Alex Marino Gonçalves de Almeida, Bruno Bogaz Zarpelão, Sylvio Barbon Jr, Recognition of Compromised Accounts on Twitter, XI Brazilian Symposium on Information System, Goiˆania, GO, May 26-29, 2015.
+\item Rodrigo Augusto Igawa, Alex Marino Gonçalves de Almeida, Bruno Bogaz Zarpelão, Sylvio Barbon Jr,
+Recognition of Compromised Accounts on Twitter, XI Brazilian Symposium on Information System, Goiˆania, GO, May 26-29, 2015.
 \item Meike Nauta, Detecting Hacked Twitter Accounts by Examining
 Behavioural Change using Twitter Metadata, IEEE, 2017.
 \item Ting-Kai Huang, Md Sazzadur Rahman, Harsha V
@@ -302,7 +304,7 @@ Scientist, 195(2613):26–27, 2007.
 Engin Kirda. All your contacts are belong to us
 automated identity theft attacks on social networks. In
 Proceedings of the 18th international conference on
-World wide web, pages 551–560. ACM, 2009.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+World wide web, pages 551–560. ACM, 2009.
 \item L. Ablon, M. C. Libicki, and A. A. Golay. Markets
 for Cybercrime Tools and Stolen Data: Hackers’
 Bazaar. RAND Corporation, Santa Monica, CA,

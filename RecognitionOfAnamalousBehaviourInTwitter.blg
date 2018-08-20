@@ -1,0 +1,5 @@
+[0] Config.pm:302> INFO - This is Biber 2.11
+[0] Config.pm:305> INFO - Logfile is 'RecognitionOfAnamalousBehaviourInTwitter.blg'
+[26] biber-MSWIN64:313> INFO - === 
+[58] Biber.pm:371> INFO - Reading 'RecognitionOfAnamalousBehaviourInTwitter.bcf'
+[150] Utils.pm:193> WARN - No data sources defined!
