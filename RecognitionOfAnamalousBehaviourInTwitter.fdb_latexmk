@@ -1,10 +1,10 @@
 # Fdb version 3
-["biber RecognitionOfAnamalousBehaviourInTwitter"] 1534650077 "RecognitionOfAnamalousBehaviourInTwitter.bcf" "RecognitionOfAnamalousBehaviourInTwitter.bbl" "RecognitionOfAnamalousBehaviourInTwitter" 1534757615
-  "RecognitionOfAnamalousBehaviourInTwitter.bcf" 1534757615 92570 48c2379753a1157d830face47106da11 ""
+["biber RecognitionOfAnamalousBehaviourInTwitter"] 1534826021 "RecognitionOfAnamalousBehaviourInTwitter.bcf" "RecognitionOfAnamalousBehaviourInTwitter.bbl" "RecognitionOfAnamalousBehaviourInTwitter" 1534830325
+  "RecognitionOfAnamalousBehaviourInTwitter.bcf" 1534830324 92616 c25594d708737059b0c110d0fbf62b2d ""
   (generated)
-  "RecognitionOfAnamalousBehaviourInTwitter.bbl"
   "RecognitionOfAnamalousBehaviourInTwitter.blg"
-["pdflatex"] 1534757613 "d:/learning/ML-R/references/Docs/RecognitionOfAnamalousBehaviourInTwitter.tex" "RecognitionOfAnamalousBehaviourInTwitter.pdf" "RecognitionOfAnamalousBehaviourInTwitter" 1534757615
+  "RecognitionOfAnamalousBehaviourInTwitter.bbl"
+["pdflatex"] 1534830323 "d:/learning/ML-R/references/Docs/RecognitionOfAnamalousBehaviourInTwitter.tex" "RecognitionOfAnamalousBehaviourInTwitter.pdf" "RecognitionOfAnamalousBehaviourInTwitter" 1534830325
   "C:/Users/manjunatha c/AppData/Local/MiKTeX/2.9/miktex/data/le/pdftex/pdflatex.fmt" 1525781728 4083201 054d7a0204f16505bcb7a436002e68f5 ""
   "C:/Users/manjunatha c/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map" 1534598611 80423 3cfba73105275d3ad410701d89fbdf7a ""
   "C:/Users/manjunatha c/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -90,16 +90,17 @@
   "C:/Users/manjunatha c/AppData/Local/Programs/MiKTeX 2.9/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/manjunatha c/AppData/Local/Programs/MiKTeX 2.9/tex/latex/xstring/xstring.sty" 1381656702 144 0ca8d67b000b795a4d9ec000e0fd09c7 ""
   "Methodology.png" 1529846955 67086 82a06f72ab597007ba80933c55fe5422 ""
-  "RecognitionOfAnamalousBehaviourInTwitter.aux" 1534757615 4125 c9f2f46ccd98782ccefb64d965a3a595 ""
-  "RecognitionOfAnamalousBehaviourInTwitter.bbl" 1534650079 0 d41d8cd98f00b204e9800998ecf8427e "biber RecognitionOfAnamalousBehaviourInTwitter"
-  "RecognitionOfAnamalousBehaviourInTwitter.run.xml" 1534757615 2558 e70ad8fa49203ada365d56a9bba9dbd8 ""
-  "RecognitionOfAnamalousBehaviourInTwitter.tex" 1534757612 25700 f262c1aad3f068c5eb1db8756e881ce5 ""
-  "d:/learning/ML-R/references/Docs/RecognitionOfAnamalousBehaviourInTwitter.tex" 1534757612 25700 f262c1aad3f068c5eb1db8756e881ce5 ""
-  "pieChart1.jpg" 1534756471 4836 854573010af333ea8550069f5befdf2a ""
+  "RecognitionOfAnamalousBehaviourInTwitter.aux" 1534830324 4473 13ef08f297d31ac8895b84b239800106 ""
+  "RecognitionOfAnamalousBehaviourInTwitter.bbl" 1534826025 0 d41d8cd98f00b204e9800998ecf8427e "biber RecognitionOfAnamalousBehaviourInTwitter"
+  "RecognitionOfAnamalousBehaviourInTwitter.run.xml" 1534830325 2558 e70ad8fa49203ada365d56a9bba9dbd8 ""
+  "RecognitionOfAnamalousBehaviourInTwitter.tex" 1534830322 27968 b0e5d25bad59b02c22a6b03a6ba2b127 ""
+  "attack_types1.png" 1534824854 8037 5dd32b5b840a6c17d21fe5297daceac0 ""
+  "d:/learning/ML-R/references/Docs/RecognitionOfAnamalousBehaviourInTwitter.tex" 1534830322 27968 b0e5d25bad59b02c22a6b03a6ba2b127 ""
+  "pieChart1.jpg" 1534825482 4310 4375ca41595b45693124c466928986cc ""
   "sample_ann.png" 1532349056 44825 5cde6861b74755a8a03f00c62bb6bddb ""
   (generated)
   "RecognitionOfAnamalousBehaviourInTwitter.bcf"
-  "RecognitionOfAnamalousBehaviourInTwitter.pdf"
-  "RecognitionOfAnamalousBehaviourInTwitter.aux"
-  "RecognitionOfAnamalousBehaviourInTwitter.run.xml"
   "RecognitionOfAnamalousBehaviourInTwitter.log"
+  "RecognitionOfAnamalousBehaviourInTwitter.aux"
+  "RecognitionOfAnamalousBehaviourInTwitter.pdf"
+  "RecognitionOfAnamalousBehaviourInTwitter.run.xml"

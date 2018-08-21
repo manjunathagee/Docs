@@ -118,6 +118,15 @@ Similar to FriendShip Ratio we also compute the Tweet Ratio which indicates the 
 
 Where the \verb |Tweets(U)| is the total number of Tweets the user has sent and User Longevity is the total number of days since the user created the account in Twitter.
 
+\subsection{Favorite Ratio}
+Favorite Ratio signifies the rate at which the user likes other users posts in a short duration of time. 
+
+\begin{equation}
+	FAVR (U) = \frac{|Favorites(U)|}{User Longevity} \\
+\end{equation}
+
+Where the \verb |Favorites(U)| is the total number of likes the user has given and User Longevity is the total number of days since the user created the account in Twitter.
+
 \subsection{Tweeting Period}
 Here, we consider the time in which the user prefers to send the tweet during the 24 hours of the day. We divide the day into 4 quadrants and identify the quadrants in which the user prefers to send the tweet. If there is a sudden change in the tweeting period we assume that this is not a normal behaviour. \\
 
@@ -187,35 +196,86 @@ Here, we track the device category that the user is using to compose tweets. Maj
 \end{enumerate} 
 First, we extract all the devices that the user has used to compose the tweet, and in the next step we consider the most used device among the available sources. Since the ANN cannot work on the string sources, we convert the string sources to numeric values.
 
- 
+\subsection{Language Preference}
+Here, we track the language that the user is using to compose tweets. Majority of the users tend to use the same language for composing the tweet. 
+By tracking the language preference of an user we will be able to detect anamalous behaviour as shown in algorithm 3.
+
+\textbf{Algorithm 3:} Computing the Language preference for each user in Dataset DT; \\
+\textbf{Input:} Preprocessed dataset DT; i=1,2,3..N, l=1,2,3...M, contains the languages(l) used by user(i) for composing tweet;\\
+\textbf{Output:} User language preference, common language used to compose tweet; \\
+
+\begin{enumerate}
+	\item Iterate: \textit{i = 1} to \textit{N}; \\
+	Initialize language preference  for each user \textit{i};
+	\begin{equation*}
+		\verb language_preference[i]  \leftarrow "";
+	\end{equation*}
+	\item Iterate: \textit{l = 1} to \textit{M};
+		\begin{equation*}
+			sources  \leftarrow \\availableLanguagesForUser[i]; \\
+		\end{equation*}
+		\begin{equation*}
+			languagePreference[i]  \leftarrow
+		\end{equation*}	
+		\begin{equation*}
+			numeric( asCharacter( max( language )))
+		\end{equation*}	
+		
+		
+\end{enumerate} 
+First, we extract all the languages that the user has used to compose the tweet, 
+and in the next step we consider the most used language among the available languages. 
+Since the ANN cannot work on the string sources, we convert the string sources to numeric values.
+
+
 \section{Methodology}
 
-The entire flow of anomalous user detection can be summerized as shown in Fig 1. The first step includes extraction of real world data. We have used python library called 'tweepy' for extracting the data in csv format.\\
+
+Table 1 mapps the well known OSN attacks i.e SocWare and Compromised Account to behavioural features\cite{11}. 
+We use Friendship Ratio, Favorite Ratio and Tweet Ratio to identify wheather an account is SocWare or not, similarly we use Tweeting Period, 
+Device Preference and Language Preference to identify wheather the account is compromised or not.
+
+\begin{figure}[h!]
+	\includegraphics[scale=0.7]{attack_types1}
+\end{figure}
+
+The entire flow of anomalous user detection can be summerized as shown in Fig 1. The first step includes extraction of real world data. 
+We have used python library called 'tweepy' for extracting the data in csv format.
+
+The quality of the ANN algorithm depends directly on the quality of input data. Real world data tends to be messy with many missing values, 
+redundant and noisy data etc. Hence, in the second step we carry out exploratory data analysis where we clean the data looking for missing, 
+NotAvailable(NA) or empty values, duplicate ids and identify any outliers. Then we remove such data since they can make the ANN model unstable for prediction.
 
 \begin{figure}[h!]
 	\includegraphics[scale=0.7]{Methodology}
 	\caption{Flowchart of Anomalous User Detection.}
 \end{figure}
 
-The quality of the ANN algorithm depends directly on the quality of input data. Real world data tends to be messy with many missing values, redundant and noisy data etc. Hence, in the second step we carry out exploratory data analysis where we clean the data looking for missing, NotAvailable(NA) or empty values, duplicate ids and identify any outliers. Then we remove such data since they can make the ANN model unstable for prediction.\\
-
-In the third step we derive the columns like Friendship Ratio, Tweet Ratio, Tweeting Period, Device Preference using the algorithm discussed in section \ref{featureDescription}. The derived values are then normalized to scale within 0 to 1. \\
+In the third step we derive the columns like Friendship Ratio, Tweet Ratio, Tweeting Period, Device Preference using the algorithm discussed in section 
+\ref{featureDescription}. The derived values are then normalized to scale within 0 to 1.
 
 Once the data is preprocessed and all the derived columns are available, we split the data into train and test data, use the train data to prepare the ANN model and once the model is trained we use the remaining test data to evaluate the 
 accuracy of the model to test how well the model has learnt from it's test data.
- 
-\section{Experiments and Results}
-	  We considered extracting the real world data using python library called 'tweepy'. We started with one user and extracted all the friends from the user profile and extracted all the tweets and other information required for the algorithm and we repeated the same procedure for each of the friends in the list, taking care to avoid 
-	  duplicated extraction of the user data who is a common friend. \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
- 
-  	Once the data is available, we carried out Exploratory Data Analysis to identify null/empty values and removed outliers from the data. Using the algorithms discussed in section \ref{featureDescription} we divided the data into training and test data in the ratio of 70:30(train:test).\\
 
-	We used Aritifical Neural Network library called 'neuralnet' provided by 'R' language. Once the model was trained we used the remainig test data to evaluate the performace of the ANN model, and once we noticed deviation in the user behaviour we flaged the user as anamalous. \\
+\section{Experiments and Results}
+	  We considered extracting the real world data using python library called 'tweepy'. We started with one user and extracted all the friends 
+	  from the user profile and extracted all the tweets and other information required for the algorithm and we repeated the same procedure for each 
+	  of the friends in the list, taking care to avoid duplicated extraction of the user data who is a common friend. 
+	   
+	  Once the data is available, we carried out Exploratory Data Analysis to identify null/empty values and removed outliers from the data. 
+	  Using the algorithms discussed in section \ref{featureDescription} we divided the data into training and test data in the ratio of 70:30(train:test).
+
+	  We used Aritifical Neural Network library called 'neuralnet' provided by 'R' language. 
+	  Once the model was trained we used the remainig test data to evaluate the performace of the ANN model, 
+	  and once we noticed deviation in the user behaviour we flaged the user as anamalous.
 	
 	We ran the algorithm on the 1.4 million tweets extracted from twitter, and were able to identify Social Bot accounts with high accuracy requiring only few tweets to identify whether the account is compromised or not.
- While extracting the data we collected data samples of compromised account from twitter.com to see whether our algorithm is able to classify them as compromised or not. The final results classified those compromised accounts showing the accuracy of algorithm used.
-
-% \includegraphics[scale=0.9]{attack_types}
+ While extracting the data we collected data samples of compromised account from twitter.com to see whether our algorithm is able to classify them as compromised or not. 
+ The final results classified those compromised accounts showing the accuracy of algorithm used.
+ 
+ Fig 2. shows the sample of ANN as created by R neuralnet library. We used features like tweeting period, devices used for composing tweets, 
+ tweet ratio etc. to train the model.\\
+ Fig 3. shows the final result where Anamalous user is mapped against Normal user.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 \begin{figure}[h!]
   \includegraphics[scale=0.4]{sample_ann}
@@ -227,8 +287,6 @@ accuracy of the model to test how well the model has learnt from it's test data.
   \caption{ Normal vs Anomalous Users.}
 \end{figure}
 
-Fig 2. shows the sample of ANN as created by R neuralnet library. We used features like tweeting period, devices used for composing tweets, tweet ratio etc. to train the model.\\
-Fig 3. shows the final result where Anamalous user is mapped against Normal user.
 
 \section{Conclusion and Futurework}
 
