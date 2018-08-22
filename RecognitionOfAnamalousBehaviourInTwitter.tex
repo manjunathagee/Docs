@@ -231,7 +231,7 @@ Since the ANN cannot work on the string sources, we convert the string sources t
 \section{Methodology}
 
 
-Table 1 mapps the well known OSN attacks i.e SocWare and Compromised Account to behavioural features\cite{11}. 
+Table 1 maps the well known OSN attacks i.e SocWare and Compromised Account to behavioural features\cite{11}. 
 We use Friendship Ratio, Favorite Ratio and Tweet Ratio to identify wheather an account is SocWare or not, similarly we use Tweeting Period, 
 Device Preference and Language Preference to identify wheather the account is compromised or not.
 
@@ -269,25 +269,33 @@ accuracy of the model to test how well the model has learnt from it's test data.
 	  Once the model was trained we used the remainig test data to evaluate the performace of the ANN model, 
 	  and once we noticed deviation in the user behaviour we flaged the user as anamalous.
 	
-	We ran the algorithm on the 1.4 million tweets extracted from twitter, and were able to identify Social Bot accounts with high accuracy requiring only few tweets to identify whether the account is compromised or not.
- While extracting the data we collected data samples of compromised account from twitter.com to see whether our algorithm is able to classify them as compromised or not. 
- The final results classified those compromised accounts showing the accuracy of algorithm used.
+	  While extracting the data we collected data samples of compromised account from twitter.com to see 
+	  whether our algorithm is able to classify them as compromised or not. 
+	  
+	  We ran the algorithm on the 1.4 million tweets extracted from twitter, and were able to identify Social Bot accounts 
+	  with high accuracy requiring only few tweets to identify whether the account is compromised or not.
+	 
+	  The final results classified those compromised accounts showing the accuracy of algorithm used.
+	  
+	  Authors\cite{12} used features like links and retweets for profiling the algorithm and N-grams as its kernal to classify the compromised account. They 
+	  achieved results with accuracy ranging from 94.10\% to 95.80\%. We proposed a behavioural based methodology using features like friendShip ratio, favorite
+	  ratio, tweet ratio, language preference, device preference, tweeting period to identify compromised account with an error rate of only 0.79\%.
  
  Fig 2. shows the sample of ANN as created by R neuralnet library. We used features like tweeting period, devices used for composing tweets, 
  tweet ratio etc. to train the model.\\
- Fig 3. shows the final result where Anamalous user is mapped against Normal user.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+ Fig 3. shows the final result where Anamalous user is mapped against Normal user.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 \begin{figure}[h!]
   \includegraphics[scale=0.4]{sample_ann}
   \caption{Preview of ANN as created by R.}
 \end{figure}
 
-\begin{figure}[h!]
-  \includegraphics[scale=0.6]{pieChart1}
-  \caption{ Normal vs Anomalous Users.}
-\end{figure}
+% \begin{figure}[h!]
+%   \includegraphics[scale=0.6]{pieChart1}
+%   \caption{ Normal vs Anomalous Users.}
+% \end{figure}
 
-
+\newpage
 \section{Conclusion and Futurework}
 
 In this paper, we proposed an approach to identify Compromised account and detect Social Bots on the basis of behavioural features. Once the behaviour tends to change of what is considered to be normal, we flag the account as anamalous and the OSN admin can take necessary actions against the same. This work can be further extended for identifying several OSN attacks such as Cyberbullying, Identity Cloning, Sybil Account Detection, Creepers Attacks, Clickjacking etc on Twitter. Further, this work can be extended to be deployed on a decentralized network where the data is not centralized at one location.
@@ -334,6 +342,9 @@ Symposium (USENIX Security), 2014.
 \item  Naeimeh Laleh, Barbara Carminati and Elena Ferrari. Risk Assessment in Social Networks based on
 User Anomalous Behaviours, IEEE Transactions on Dependable and Secure Computing, 2015.
 
+\item Rodrigo Augusto Igawa, Alex Marino Gonçalves de Almeida, Bruno Bogaz Zarpelao, Sylvio Barbon Jr.
+XI Brazilian Symposium on Information System, Goiania, GO, May 26-29, 2015.
+
 \item E. Zangerle and G. Specht. ”sorry, i was hacked” a
 classification of compromised twitter accounts.
 Proceedings of the ACM Symposium on Applied
@@ -377,11 +388,11 @@ features for identifying spammers in online social
 networks. In Proceedings of the 2013 IEEE/ACM
 International Conference on Advances in Social Networks Analysis and Mining, pages 100–107. ACM,
 2013.
-\item C. Chen, J. Zhang, X. Chen, Y. Xiang, and
-W. Zhou. 6 million spam tweets: A large ground
-truth for timely twitter spam detection. IEEE
-International Conference on Communications,
-2015-September:7065–7070, 2015.
+% \item C. Chen, J. Zhang, X. Chen, Y. Xiang, and
+% W. Zhou. 6 million spam tweets: A large ground
+% truth for timely twitter spam detection. IEEE
+% International Conference on Communications,
+% 2015-September:7065–7070, 2015.
 
 \end{enumerate}
 

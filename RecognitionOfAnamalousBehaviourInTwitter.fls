@@ -193,11 +193,6 @@ INPUT ./sample_ann.png
 INPUT ./sample_ann.png
 INPUT ./sample_ann.png
 INPUT ./sample_ann.png
-INPUT pieChart1.jpg
-INPUT ./pieChart1.jpg
-INPUT ./pieChart1.jpg
-INPUT ./pieChart1.jpg
-INPUT ./pieChart1.jpg
 INPUT RecognitionOfAnamalousBehaviourInTwitter.aux
 INPUT RecognitionOfAnamalousBehaviourInTwitter.run.xml
 OUTPUT RecognitionOfAnamalousBehaviourInTwitter.run.xml
