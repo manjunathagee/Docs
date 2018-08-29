@@ -101,72 +101,76 @@ However, some of the accounts are lot harder to prevent which are not created fo
 In this section we discuss the derived features which are used to train the Artifical Neural Network(ANN).
 
 \subsection{FriendShip Ratio}
-The normal behaviour of any user in any OSN is that, when he/she creates a new account the rate at which he/she makes friends is limited. By considering the rate at which an user sends a friend request, we can easily identify whether the account is a bot or not. The research done by Zhi Yang and Christo Wilson clearly shows that the bots are aggressive in establishing new connections with strangers in a small span of time. It can be noted that, if an user successfully establishes large number of connections within a short span of time, then it is not a normal behaviour \cite{11}.
+The normal behaviour of any user in any OSN is that, when he/she creates a new account the rate at which he/she makes friends is limited. 
+By considering the rate at which an user sends a friend request, we can easily identify whether the account is a bot or not. 
+The research done by Zhi Yang and Christo Wilson clearly shows that the bots are aggressive in establishing new connections 
+with strangers in a small span of time. It can be noted that, if an user successfully establishes large 
+number of connections within a short span of time, then it is not a normal behaviour \cite{11}.
 
-\begin{equation}
-	 FR (U) = \frac{|Friends(U)|}{User Longevity} \\
-\end{equation}
+% \begin{equation}
+% 	 FR (U) = \frac{|Friends(U)|}{User Longevity} \\
+% \end{equation}
 
-Where \verb |Friends(U)| represents the total number of friends an user(U) has acquired and User Longevity is the total number of days since the user created the account in Twitter. 
+% Where \verb |Friends(U)| represents the total number of friends an user(U) has acquired and User Longevity is the total number of days since the user created the account in Twitter. 
 
 \subsection{Tweet Ratio}
 Similar to FriendShip Ratio we also compute the Tweet Ratio which indicates the frequency with which the user is sending tweets in OSN.
 	
-\begin{equation}
-	 TR (U) = \frac{|Tweets(U)|}{User Longevity} \\
-\end{equation}	
+% \begin{equation}
+% 	 TR (U) = \frac{|Tweets(U)|}{User Longevity} \\
+% \end{equation}	
 
-Where the \verb |Tweets(U)| is the total number of Tweets the user has sent and User Longevity is the total number of days since the user created the account in Twitter.
+% Where the \verb |Tweets(U)| is the total number of Tweets the user has sent and User Longevity is the total number of days since the user created the account in Twitter.
 
 \subsection{Favorite Ratio}
 Favorite Ratio signifies the rate at which the user likes other users posts in a short duration of time. 
 
-\begin{equation}
-	FAVR (U) = \frac{|Favorites(U)|}{User Longevity} \\
-\end{equation}
+% \begin{equation}
+% 	FAVR (U) = \frac{|Favorites(U)|}{User Longevity} \\
+% \end{equation}
 
-Where the \verb |Favorites(U)| is the total number of likes the user has given and User Longevity is the total number of days since the user created the account in Twitter.
+% Where the \verb |Favorites(U)| is the total number of likes the user has given and User Longevity is the total number of days since the user created the account in Twitter.
 
-\subsection{Tweeting Period}
-Here, we consider the time in which the user prefers to send the tweet during the 24 hours of the day. We divide the day into 4 quadrants and identify the quadrants in which the user prefers to send the tweet. If there is a sudden change in the tweeting period we assume that this is not a normal behaviour. \\
+% \subsection{Tweeting Period}
+% Here, we consider the time in which the user prefers to send the tweet during the 24 hours of the day. We divide the day into 4 quadrants and identify the quadrants in which the user prefers to send the tweet. If there is a sudden change in the tweeting period we assume that this is not a normal behaviour. \\
 
-The algorithm to count the number of tweets by a user in the tweeting period is given in algorithm 1.
+% The algorithm to count the number of tweets by a user in the tweeting period is given in algorithm 1.
 
-\textbf{Algorithm 1:} Creating Tweeting Period and counting number of tweets for each user in the Dataset DT; \\
-\textbf{Input:} Preprocessed dataset DT; i=1,2,3...N, t=1,2,3,...M, contains the tweet creation time for each tweet t which belongs to user i;\\
-\textbf{Output:} User time preference, duration of the day in which the user usually sends the tweet; \\
+% \textbf{Algorithm 1:} Creating Tweeting Period and counting number of tweets for each user in the Dataset DT; \\
+% \textbf{Input:} Preprocessed dataset DT; i=1,2,3...N, t=1,2,3,...M, contains the tweet creation time for each tweet t which belongs to user i;\\
+% \textbf{Output:} User time preference, duration of the day in which the user usually sends the tweet; \\
 
-\begin{enumerate}
-\item Iterate: \textit{i = 1} to \textit{N;}\\
-Initialize quadrants for each user;\\
-Q1 $\leftarrow$ 0; \\
-Q2 $\leftarrow$ 0; \\
-Q3 $\leftarrow$ 0; \\
-Q4 $\leftarrow$ 0; \\
-  \item Iterate: \textit{t=1} to \textit{M};
-	\begin{equation*}
-		\verb sent_time =  tweets[i][t].creation_time;
-	\end{equation*}
-	\begin{equation*}
-		if( \floor*{\frac{sent_time}{6}}  == 0) ;
-			Q1 \leftarrow Q1+1
-	\end{equation*}
-	\begin{equation*}
-		else if( \floor*{\frac{sent_time}{6}}  == 1) ;
-			Q2 \leftarrow Q2+1
-	\end{equation*}
-	\begin{equation*}
-		else if( \floor*{\frac{sent_time}{6}}  == 2) ;
-			Q3 \leftarrow Q3+1
-	\end{equation*}
-	\begin{equation*}
-		else if( \floor*{\frac{sent_time}{6}}  == 3) ;
-			Q4 \leftarrow Q4+1
-	\end{equation*}
-\end{enumerate}
-\begin{equation*}
-twitter[i][\verb tweeting_period] \leftarrow max(Q1, Q2 , Q3 , Q4)
-\end{equation*}
+% \begin{enumerate}
+% \item Iterate: \textit{i = 1} to \textit{N;}\\
+% Initialize quadrants for each user;\\
+% Q1 $\leftarrow$ 0; \\
+% Q2 $\leftarrow$ 0; \\
+% Q3 $\leftarrow$ 0; \\
+% Q4 $\leftarrow$ 0; \\
+%   \item Iterate: \textit{t=1} to \textit{M};
+% 	\begin{equation*}
+% 		\verb sent_time =  tweets[i][t].creation_time;
+% 	\end{equation*}
+% 	\begin{equation*}
+% 		if( \floor*{\frac{sent_time}{6}}  == 0) ;
+% 			Q1 \leftarrow Q1+1
+% 	\end{equation*}
+% 	\begin{equation*}
+% 		else if( \floor*{\frac{sent_time}{6}}  == 1) ;
+% 			Q2 \leftarrow Q2+1
+% 	\end{equation*}
+% 	\begin{equation*}
+% 		else if( \floor*{\frac{sent_time}{6}}  == 2) ;
+% 			Q3 \leftarrow Q3+1
+% 	\end{equation*}
+% 	\begin{equation*}
+% 		else if( \floor*{\frac{sent_time}{6}}  == 3) ;
+% 			Q4 \leftarrow Q4+1
+% 	\end{equation*}
+% \end{enumerate}
+% \begin{equation*}
+% twitter[i][\verb tweeting_period] \leftarrow max(Q1, Q2 , Q3 , Q4)
+% \end{equation*}
 
 \subsection{Device Preference}
 Here, we track the device category that the user is using to compose tweets. Majority of the users tend to use the same category of devices like mobile phones, desktops, tablets etc. By tracking the device preference of an user we will be able to detect anamalous behaviour as shown in algorithm 2.
@@ -196,47 +200,45 @@ Here, we track the device category that the user is using to compose tweets. Maj
 \end{enumerate} 
 First, we extract all the devices that the user has used to compose the tweet, and in the next step we consider the most used device among the available sources. Since the ANN cannot work on the string sources, we convert the string sources to numeric values.
 
-\subsection{Language Preference}
-Here, we track the language that the user is using to compose tweets. Majority of the users tend to use the same language for composing the tweet. 
-By tracking the language preference of an user we will be able to detect anamalous behaviour as shown in algorithm 3.
+% \subsection{Language Preference}
+% Here, we track the language that the user is using to compose tweets. Majority of the users tend to use the same language for composing the tweet. 
+% By tracking the language preference of an user we will be able to detect anamalous behaviour as shown in algorithm 3.
 
-\textbf{Algorithm 3:} Computing the Language preference for each user in Dataset DT; \\
-\textbf{Input:} Preprocessed dataset DT; i=1,2,3..N, l=1,2,3...M, contains the languages(l) used by user(i) for composing tweet;\\
-\textbf{Output:} User language preference, common language used to compose tweet; \\
+% \textbf{Algorithm 3:} Computing the Language preference for each user in Dataset DT; \\
+% \textbf{Input:} Preprocessed dataset DT; i=1,2,3..N, l=1,2,3...M, contains the languages(l) used by user(i) for composing tweet;\\
+% \textbf{Output:} User language preference, common language used to compose tweet; \\
 
-\begin{enumerate}
-	\item Iterate: \textit{i = 1} to \textit{N}; \\
-	Initialize language preference  for each user \textit{i};
-	\begin{equation*}
-		\verb language_preference[i]  \leftarrow "";
-	\end{equation*}
-	\item Iterate: \textit{l = 1} to \textit{M};
-		\begin{equation*}
-			sources  \leftarrow \\availableLanguagesForUser[i]; \\
-		\end{equation*}
-		\begin{equation*}
-			languagePreference[i]  \leftarrow
-		\end{equation*}	
-		\begin{equation*}
-			numeric( asCharacter( max( language )))
-		\end{equation*}	
+% \begin{enumerate}
+% 	\item Iterate: \textit{i = 1} to \textit{N}; \\
+% 	Initialize language preference  for each user \textit{i};
+% 	\begin{equation*}
+% 		\verb language_preference[i]  \leftarrow "";
+% 	\end{equation*}
+% 	\item Iterate: \textit{l = 1} to \textit{M};
+% 		\begin{equation*}
+% 			sources  \leftarrow \\availableLanguagesForUser[i]; \\
+% 		\end{equation*}
+% 		\begin{equation*}
+% 			languagePreference[i]  \leftarrow
+% 		\end{equation*}	
+% 		\begin{equation*}
+% 			numeric( asCharacter( max( language )))
+% 		\end{equation*}	
 		
 		
-\end{enumerate} 
-First, we extract all the languages that the user has used to compose the tweet, 
-and in the next step we consider the most used language among the available languages. 
-Since the ANN cannot work on the string sources, we convert the string sources to numeric values.
+% \end{enumerate} 
+% First, we extract all the languages that the user has used to compose the tweet, 
+% and in the next step we consider the most used language among the available languages. 
+% Since the ANN cannot work on the string sources, we convert the string sources to numeric values.
 
 
 \section{Methodology}
-
-
 Table 1 maps the well known OSN attacks i.e SocWare and Compromised Account to behavioural features\cite{11}. 
-We use Friendship Ratio, Favorite Ratio and Tweet Ratio to identify wheather an account is SocWare or not, similarly we use Tweeting Period, 
-Device Preference and Language Preference to identify wheather the account is compromised or not.
+We use Friendship Ratio, Favorite Ratio and Tweet Ratio to identify wheather an account is SocWare or not, similarly we use FriendShip Ratio and
+Device Preference to identify wheather the account is compromised or not.
 
 \begin{figure}[h!]
-	\includegraphics[scale=0.7]{attack_types1}
+	\includegraphics[scale=0.7]{attack_types2}
 \end{figure}
 
 The entire flow of anomalous user detection can be summerized as shown in Fig 1. The first step includes extraction of real world data. 
@@ -246,16 +248,17 @@ The quality of the ANN algorithm depends directly on the quality of input data. 
 redundant and noisy data etc. Hence, in the second step we carry out exploratory data analysis where we clean the data looking for missing, 
 NotAvailable(NA) or empty values, duplicate ids and identify any outliers. Then we remove such data since they can make the ANN model unstable for prediction.
 
-\begin{figure}[h!]
-	\includegraphics[scale=0.7]{Methodology}
-	\caption{Flowchart of Anomalous User Detection.}
-\end{figure}
-
-In the third step we derive the columns like Friendship Ratio, Tweet Ratio, Tweeting Period, Device Preference using the algorithm discussed in section 
+In the third step we derive the columns like Friendship Ratio, Tweet Ratio, Tweeting Period and Device Preference using the algorithm discussed in section 
 \ref{featureDescription}. The derived values are then normalized to scale within 0 to 1.
 
-Once the data is preprocessed and all the derived columns are available, we split the data into train and test data, use the train data to prepare the ANN model and once the model is trained we use the remaining test data to evaluate the 
+Once the data is preprocessed and all the derived columns are available, we split the data into train and test data, 
+use the train data to prepare the ANN model and once the model is trained we use the remaining test data to evaluate the 
 accuracy of the model to test how well the model has learnt from it's test data.
+
+\begin{figure}[h!]
+	\includegraphics[scale=0.7]{Methodology1}
+	\caption{Flowchart of Anomalous User Detection.}
+\end{figure}
 
 \section{Experiments and Results}
 	  We considered extracting the real world data using python library called 'tweepy'. We started with one user and extracted all the friends 
@@ -272,33 +275,39 @@ accuracy of the model to test how well the model has learnt from it's test data.
 	  While extracting the data we collected data samples of compromised account from twitter.com to see 
 	  whether our algorithm is able to classify them as compromised or not. 
 	  
-	  We ran the algorithm on the 1.4 million tweets extracted from twitter, and were able to identify Social Bot accounts 
+	  We ran the algorithm on the 231 users tweets extracted from twitter, and were able to identify Social Bot accounts 
 	  with high accuracy requiring only few tweets to identify whether the account is compromised or not.
 	 
 	  The final results classified those compromised accounts showing the accuracy of algorithm used.
 	  
-	  Authors\cite{12} used features like links and retweets for profiling the algorithm and N-grams as its kernal to classify the compromised account. They 
-	  achieved results with accuracy ranging from 94.10\% to 95.80\%. We proposed a behavioural based methodology using features like friendShip ratio, favorite
-	  ratio, tweet ratio, language preference, device preference, tweeting period to identify compromised account with an error rate of only 0.79\%.
+	  Authors\cite{12} used features like links and retweets for profiling the algorithm and N-grams as its kernal to classify the compromised account.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	   They achieved results with accuracy ranging  from 94.10\% to 95.80\%. We proposed a behavioural based methodology using features like friendShip ratio, favorite
+	  ratio, tweet ratio and device preference to identify compromised account with an error rate of only 0.79\%.
  
- Fig 2. shows the sample of ANN as created by R neuralnet library. We used features like tweeting period, devices used for composing tweets, 
- tweet ratio etc. to train the model.\\
- Fig 3. shows the final result where Anamalous user is mapped against Normal user.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+ Fig 2. shows the sample of ANN as created by R neuralnet library. We used features like FriendShip Ratio and the devices used for composing tweets 
+ to train the model.
+ 
 
 \begin{figure}[h!]
   \includegraphics[scale=0.4]{sample_ann}
   \caption{Preview of ANN as created by R.}
 \end{figure}
 
-% \begin{figure}[h!]
-%   \includegraphics[scale=0.6]{pieChart1}
-%   \caption{ Normal vs Anomalous Users.}
-% \end{figure}
+Fig 3. shows the final result where Anamalous user is mapped against Normal user.
 
-\newpage
+\begin{figure}[h!]
+  \includegraphics[scale=0.6]{pieChart1}
+  \caption{ Normal vs Anomalous Users.}
+\end{figure}
+
 \section{Conclusion and Futurework}
 
-In this paper, we proposed an approach to identify Compromised account and detect Social Bots on the basis of behavioural features. Once the behaviour tends to change of what is considered to be normal, we flag the account as anamalous and the OSN admin can take necessary actions against the same. This work can be further extended for identifying several OSN attacks such as Cyberbullying, Identity Cloning, Sybil Account Detection, Creepers Attacks, Clickjacking etc on Twitter. Further, this work can be extended to be deployed on a decentralized network where the data is not centralized at one location.
+In this paper, we proposed an approach to identify Compromised account and detect Social Bots on the basis of behavioural features. 
+Once the behaviour tends to change of what is considered to be normal, we flag the account as anamalous and the OSN admin can 
+take necessary actions against the same. 
+This work can be further extended for identifying several OSN attacks such as Cyberbullying, Identity Cloning, 
+Sybil Account Detection, Creepers Attacks, Clickjacking etc on Twitter. Further, this work can be extended to 
+be deployed on a decentralized network where the data is not centralized at one location.
 
 \begin{center}
 \textbf{References}
@@ -369,25 +378,25 @@ Online social networks- threats and solutions. 2013.
 \item Phil McKenna. The rise of cyberbullying. New
 Scientist, 195(2613):26–27, 2007.
 
-\item Leyla Bilge, Thorsten Strufe, Davide Balzarotti, and
-Engin Kirda. All your contacts are belong to us
-automated identity theft attacks on social networks. In
-Proceedings of the 18th international conference on
-World wide web, pages 551–560. ACM, 2009.
-\item L. Ablon, M. C. Libicki, and A. A. Golay. Markets
-for Cybercrime Tools and Stolen Data: Hackers’
-Bazaar. RAND Corporation, Santa Monica, CA,
-2014.
-\item S.-A. Bahrainian and A. Dengel. Sentiment analysis
-and summarization of twitter data. In Computational
-Science and Engineering (CSE), 2013 IEEE 16th
-International Conference on, pages 227–234. IEEE,
-2013.
-\item S. Y. Bhat and M. Abulaish. Community-based
-features for identifying spammers in online social
-networks. In Proceedings of the 2013 IEEE/ACM
-International Conference on Advances in Social Networks Analysis and Mining, pages 100–107. ACM,
-2013.
+% \item Leyla Bilge, Thorsten Strufe, Davide Balzarotti, and
+% Engin Kirda. All your contacts are belong to us
+% automated identity theft attacks on social networks. In
+% Proceedings of the 18th international conference on
+% World wide web, pages 551–560. ACM, 2009.
+% \item L. Ablon, M. C. Libicki, and A. A. Golay. Markets
+% for Cybercrime Tools and Stolen Data: Hackers’
+% Bazaar. RAND Corporation, Santa Monica, CA,
+% 2014.
+% \item S.-A. Bahrainian and A. Dengel. Sentiment analysis
+% and summarization of twitter data. In Computational
+% Science and Engineering (CSE), 2013 IEEE 16th
+% International Conference on, pages 227–234. IEEE,
+% 2013.
+% \item S. Y. Bhat and M. Abulaish. Community-based
+% features for identifying spammers in online social
+% networks. In Proceedings of the 2013 IEEE/ACM
+% International Conference on Advances in Social Networks Analysis and Mining, pages 100–107. ACM,
+% 2013.
 % \item C. Chen, J. Zhang, X. Chen, Y. Xiang, and
 % W. Zhou. 6 million spam tweets: A large ground
 % truth for timely twitter spam detection. IEEE
