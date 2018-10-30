@@ -15,22 +15,27 @@
 \title{Identification of Anamalous Users in Twitter based on User Behaviour using Artificial Neural Networks}
 
 \author{
-\IEEEauthorblockN{Kiran K, C Manjunatha, P Deepa Shenoy, Venugopal K R}	
-\IEEEauthorblockA{
-Department of Computer Science and Engineering\\
-University Visvesvaraya College of Engineering\\
-Bangalore, Karnataka\\
-E-mail:manjunathagee@gmail.com
-E-mail:kirank.uvce@bub.ernet.in
-}
-
+	\IEEEauthorblockN{Kiran K, C Manjunatha, Harini T S, P Deepa Shenoy}	
+	\IEEEauthorblockA{
+		Department of Computer Science and Engineering\\
+		University Visvesvaraya College of Engineering,\\
+		Bengaluru, Karnataka\\
+		E-mail:manjunathagee@gmail.com
+		E-mail:kirank.uvce@bub.ernet.in
+	}
+	\and
+	\IEEEauthorblockN{Venugopal K R}	
+	\IEEEauthorblockA{
+		Vice chancellor Bangalore University,\\
+		Bengaluru, Karnataka
+	}
 }
 
 \maketitle
 
 \begin{abstract}
 
-Increased number of users in Online Social Networks(OSN) such as Facebook, Twitter, Instagram etc has led to privacy and security concerns. In this paper we propose a behavioral based risk assessment method which will help to identity Social Bots and Compromised Accounts in Twitter by leveraging the Neural Networks.
+Increased number of users in Online Social Networks(OSN) such as Facebook, Twitter, Instagram etc has led to privacy and security concerns. In this paper, we propose a behavioral based risk assessment method which will help to identity Social Bots and Compromised Accounts in Twitter by leveraging the Neural Networks.
 Our solution can detect unusual accounts based on the users' writing style, such as, time of tweeting, language used for writing tweet, frequency of tweeting, etc. This way, if the writing style of the user changes 
 from what is considered to be normal, we flag the user as risky and the OSN admin can formulate strategies to overcome the same. Experiments were performed 
 on the real world dataset extracted from twitter. Results show tremendous accuracy in identifying Social Bots and that only few tweets are required to identify whether an account has been compromised or not.
@@ -86,15 +91,15 @@ Identity cloning happens when an attacker makes an exact replica of an existing 
 This is the common type of attack in OSN where an attacker repeatedly sends hurtfull messages, shares private pictures or videos of the victims(usually teenagers and children) and harass them. One way to identify this type of attack is to monitor the user's messages. If there are more incoming messages without any likes/shares/replies then there is a high probablity that the receiver is a victim of the attack.
 
 \section{Releated Work}
-Many approaches have been proposed by authors over a period of time in order to detect aforementioned types of attacks; SVM(Support Vector Machine) classifiers are used to seggregate the user's posts based on spam keyword score to identify the SocWare attack \cite{1}, Sybil detector apps were developed for RenRen(Chinese OSN) using regression by segregating the sybil accounts with the normal accounts based on user behaviour \cite{2} \cite{3}. COMPA app generated for facebook compares every message generated with the history of messages to flag compromised accounts, FRAppE generated for facebook successfully identifies the malicious apps by analysing the permissions which the apps requires during authentiction. \cite{4}.
+Many approaches have been proposed by authors over a period of time in order to detect aforementioned types of attacks; SVM(Support Vector Machine) classifiers are used to seggregate the user's posts based on spam keyword score to identify the SocWare attack \cite{1}, Sybil detector apps were developed for RenRen(Chinese OSN) using regression by segregating the sybil accounts with the normal accounts based on user behaviour \cite{2} \cite{3}. COMPA app generated for facebook compares every message generated with the history of messages to flag compromised accounts, FRAppE generated for facebook successfully identifies the malicious apps by analysing the permissions which the apps require during authentiction. \cite{4}.
 
-Many of the previously proposed works on detecting bots are achieved by gaining the full access to all data. Wang etal proposed a method to cluster these collected data on the behavioral patterns of the users. Beutel et al. have broken down the event data in time, user, and activity dimensions to extract similar behaviors. These methods can be used to identify the large-scale attacks on twitter, directed at a common set of targets at the same time. But, the problem arrives when accounts with similar planning of attacks will target the different groups and can handle the account separately from each other.
+Many of the previously proposed works on detecting bots are achieved by gaining the full access to all data. Wang et al. proposed a method to cluster these collected data on the behavioral patterns of the users. Beutel et al. have broken down the event data in time, user, and activity dimensions to extract similar behaviors. These methods can be used to identify the large-scale attacks on twitter, directed at a common set of targets at the same time. But, the problem arrives when accounts with similar planning of attacks will target the different groups and can handle the account separately from each other.
 
 One of the studies on detecting the spam twitter was done by authors Yardi et al. \cite{5} in the year 2010. They proposed a behavioral pattern to detect the accounts which are purely created to send the spam. But, they were able to find only small amount of differences when compared with the normal one. Social networks like Twitter will also react to the malicious spam problem by constantly trying to optimise its solutions to reduce the spammers. Another work done by Thomas et al. \cite{6} proposed a method to analyse the accounts blocked by the Twitter and they were able to find out that 77 percent of the spam accounts can be detected by the Twitter if blocked within 24 hours and 92 percent of the spam accounts within three days. However, many of the celebrities control more than hundred Twitter accounts and create new accounts to replace the blocked account.
 
 Much of the research was done on spam on Twitter over many of the years. N.N. Patil, and N.S. Gawale proposed a system to detect URLs on Twitter which contain malicious content\cite{7}. One more method was proposed by Chen et al. \cite{8} which will assess the ability of malicious spam detection by using different machine learning algorithms. They found that Naive Baye's and SVM tend to outperform other classifiers on spam detection.
 
-However, some of the accounts are lot harder to prevent which are not created for sending malicious content in the twitter. Less research is done on these compromised accounts. One of the methodology proposed by authors, G. Specht and  E. Zangerle, to find classified tweets which are being hacked is based on the behavioural reaction of the original user \cite{8}. Thomas et al. \cite{9} show the impact of the compromised account by uncovering the threat of cyber bullying, account hijacking and the damages they cause on the victim. The research done by Egele et al. \cite{10}  has the same approach as this study, wherein the authors propose a tool that identifies the compromised accounts on social network like Facebook and Twitter. The authors considered 6 feature to identify the compromised account in Facebook and Twitter, which are determined by the labelled training dataset of Facebook and Twitter, where each feature has its own weightage.
+However, some of the accounts are lot harder to prevent which are not created for sending malicious content in the twitter. Less research is done on these compromised accounts. One of the methodologies proposed by authors, G. Specht and  E. Zangerle, to find classified tweets which are being hacked is based on the behavioural reaction of the original user \cite{8}. Thomas et al. \cite{9} show the impact of the compromised account by uncovering the threat of cyber bullying, account hijacking and the damages they cause on the victim. The research done by Egele et al. \cite{10}  has the same approach as this study, wherein the authors propose a tool that identifies the compromised accounts on social network like Facebook and Twitter. The authors considered 6 feature to identify the compromised account in Facebook and Twitter, which are determined by the labelled training dataset of Facebook and Twitter, where each feature has its own weightage.
 
 \section{Feature Extraction}
 \label{featureDescription}
